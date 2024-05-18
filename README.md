@@ -4,8 +4,8 @@ This project is a simple Python program for getting answers to questions for exa
 
 ## Files
 
-* `jsonCode.py` - Contains the main functionality for managing the anime schedule.
-* `notification.py` - Provides functions for sending notifications for upcoming anime airing times.
+* `API testing.ipynb` - Test if your API is working as it should and check for any error so that environment is also set up correctly.
+* `main.py` - Program that gives the answers to questions in text files and write to another text file.
 * `schedule.json` - JSON file storing the anime schedule data.
 
 ## Features
