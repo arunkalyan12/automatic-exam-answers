@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Question Answer Generator</title>
+</head>
+<body>
+    <h1>Exam Question Answer Generator</h1>
+
+    {% if request.args.get('success') %}
+        <p>Answers have been successfully generated and saved!</p>
+    {% endif %}
+
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="question_file">Upload your question file:</label>
+        <input type="file" name="question_file" id="question_file" required><br><br>
+
+        <label for="other_instructions">Additional Instructions:</label>
+        <input type="text" name="other_instructions" id="other_instructions" placeholder="Enter additional instructions"><br><br>
+
+        <label for="output_file">Output File Path:</label>
+        <input type="text" name="output_file" id="output_file" placeholder="Enter the output file path" required><br><br>
+
+        {% for question in question_list %}
+            <h3>{{ question }}</h3>
+            <label for="instructions_{{ loop.index0 }}">Specific Instructions:</label>
+            <input type="text" name="instructions_{{ loop.index0 }}" id="instructions_{{ loop.index0 }}" placeholder="Any specific instructions"><br><br>
+        {% endfor %}
+
+        <button type="submit">Generate Answers</button>
+    </form>
+</body>
+</html>
